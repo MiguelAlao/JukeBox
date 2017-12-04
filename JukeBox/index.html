@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Mikel ON - JukeBox</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="JukeBox.js" type="text/javascript"></script>
+    </head>
+
+    <link rel="stylesheet" type="text/css" href="JukeBox.css">
+
+    <body>
+
+        <h1>Welcome to Virtual JukeBox</h1>
+
+        <div id="MscLst">
+            <button onclick="JukeBox1.gotoSong()" type="button">Select Music</button>
+            <select id="Music"> 
+            <option value="0">Basmati</option>
+            <option value="1">Homelands</option>
+            <option value="2">David August - Ensemble</option> 
+            </select>
+        </div>
+
+        <div id="btn">
+            <button onclick="JukeBox1.rewind()" type="button">Rewind</button>
+            <button onclick="JukeBox1.stop()" type="button">Stop</button>
+            <button onclick="JukeBox1.play()" type="button">Play</button>
+            <button onclick="JukeBox1.pause()" type="button">Pause</button>
+            <button onclick="JukeBox1.forward()" type="button">Forward</button>
+            <input type="checkbox" id="Shuffle">shuffle
+        </div>  
+
+        <div id="Vol">
+            <button onclick="JukeBox1.volDn()" type="button">Volume Down</button>
+            <button onclick="JukeBox1.volUp()" type="button">Volume Up</button>
+            <h3>Volume:</h3>
+            <div id="Volume">
+        </div>
+
+        <script>
+
+            let JukeBox1 = new JukeBox();
+            JukeBox1.addMusic(new Song("./music/Basmati.mp3"));
+            JukeBox1.addMusic(new Song("./music/Homelands.mp3"));
+            JukeBox1.addMusic(new Song("./music/DAVID AUGUST & ENSEMBLE.mp3"));
+            
+            console.log(JukeBox1);
+
+        </script>    
+
+     </body>
+</html>

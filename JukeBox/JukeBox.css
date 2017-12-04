@@ -1,0 +1,45 @@
+body {
+    background: DarkOliveGreen;
+    font-family: sans-serif;
+    font-size: 1.3em;
+}
+
+h1 {
+	text-align: center;
+	text-shadow: 2px 2px black;
+	color: white;
+}
+
+h2 {
+	text-align: center;
+	text-shadow: 2px 2px black;
+	color: white;
+}
+
+#MscLst {
+	padding: 10px;
+    text-align: center;
+    color: black;
+    margin: 20px;
+    background-color: DarkSlateGrey;
+    border: 6px solid gold;
+}
+
+
+#btn {
+	padding: 10px;
+	text-align: center;
+    color: black;
+    margin: 20px;
+    background-color: DarkSlateGrey;
+    border: 6px solid gold;
+}
+
+#Vol {
+	padding: 10px;
+	text-align: center;
+    color: black;
+    margin: 20px;
+    background-color: DarkSlateGrey;
+    border: 6px solid gold;
+}
