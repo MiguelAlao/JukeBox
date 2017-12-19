@@ -15,7 +15,7 @@
         <h1>Welcome to Virtual JukeBox</h1>
 
         <div id="MscLst">
-            <button onclick="JukeBox1.gotoSong()" type="button">Select Music</button>
+            <button id="selectMusBtn" class="button" type="button">Select Music</button>
             <select id="Music"> 
             <option value="0">Basmati</option>
             <option value="1">Homelands</option>
@@ -24,29 +24,58 @@
         </div>
 
         <div id="btn">
-            <button onclick="JukeBox1.rewind()" type="button">Rewind</button>
-            <button onclick="JukeBox1.stop()" type="button">Stop</button>
-            <button onclick="JukeBox1.play()" type="button">Play</button>
-            <button onclick="JukeBox1.pause()" type="button">Pause</button>
-            <button onclick="JukeBox1.forward()" type="button">Forward</button>
+            <button id="rewindBtn" class="button" type="button">Previous</button>
+            <button id="stopBtn" class="button" type="button">Stop</button>
+            <button id="playBtn" class="button" type="button">Play</button>
+            <button id="pauseBtn" class="button" type="button">Pause</button>
+            <button id="forwardBtn" class="button" type="button">Next</button>
             <input type="checkbox" id="Shuffle">shuffle
         </div>  
 
-        <div id="Vol">
-            <button onclick="JukeBox1.volDn()" type="button">Volume Down</button>
-            <button onclick="JukeBox1.volUp()" type="button">Volume Up</button>
-            <h3>Volume:</h3>
-            <div id="Volume">
+        <div id="VolBar">
+                <button id="volUpBtn" class="button" type="button">Volume Up</button><br>
+                <button id="volDnBtn" class="button" type="button">Volume Down</button>  
+                <h3>Volume:</h3>
+                <div id="Volume"></div>  
         </div>
 
         <script>
 
             let JukeBox1 = new JukeBox();
+            document.getElementById("Volume").innerText = JukeBox1.volume * 100;
             JukeBox1.addMusic(new Song("./music/Basmati.mp3"));
             JukeBox1.addMusic(new Song("./music/Homelands.mp3"));
             JukeBox1.addMusic(new Song("./music/DAVID AUGUST & ENSEMBLE.mp3"));
             
             console.log(JukeBox1);
+
+            document.getElementById("selectMusBtn").addEventListener("click", function(){JukeBox1.gotoSong()});
+            document.getElementById("rewindBtn").addEventListener("click", function(){JukeBox1.rewind()});
+            document.getElementById("stopBtn").addEventListener("click", function(){JukeBox1.stop()});
+            document.getElementById("playBtn").addEventListener("click", function(){JukeBox1.play()});
+            document.getElementById("pauseBtn").addEventListener("click", function(){JukeBox1.pause()});
+            document.getElementById("forwardBtn").addEventListener("click", function(){JukeBox1.forward()});
+            document.getElementById("volDnBtn").addEventListener("click", function(){
+                JukeBox1.volDn(); 
+                document.getElementById("Volume").innerText = JukeBox1.volume * 100;
+            });
+            //document.getElementById("volUpBtn").addEventListener("click", function(){
+            //    JukeBox1.volUp();
+            //    document.getElementById("Volume").innerHTML = JukeBox1.volume * 100;
+            //});
+            document.getElementById("volUpBtn").onclick = function(){
+               JukeBox1.volUp();
+               document.getElementById("Volume").innerText = JukeBox1.volume * 100;
+           }
+
+            document.getElementById("Shuffle").onclick = function() {
+                if (document.getElementById("Shuffle").checked){
+                    JukeBox1.Shuffle = true; 
+                }else{
+                    JukeBox1.Shuffle = false;
+                } 
+            }
+
 
         </script>    
 

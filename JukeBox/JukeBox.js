@@ -1,3 +1,5 @@
+"use strict"
+
 class Song{
 	constructor(path){
 		this.path = path;
@@ -7,7 +9,6 @@ class Song{
 	play(vol){
 		this.audio.volume = vol;
 		this.audio.play();
-		document.getElementById("Volume").innerHTML = this.audio.volume;
 	}
 
 	pause(){
@@ -26,6 +27,7 @@ class JukeBox{
 		this.musicList = [];					
 		this.musicIndex = 0;
 		this.volume = 0.5;
+		this.Shuffle = false;
 	}
 
 	addMusic(song){
@@ -45,15 +47,14 @@ class JukeBox{
 	}
 
 	gotoSong(){
-		this.musicList[this.musicIndex].stop();
+		this.stop();
 		this.musicIndex = document.getElementById("Music").selectedIndex;
-		this.musicList[this.musicIndex].play(this.volume);
+		this.play();
 	}
 
 	forward(){
-		this.musicList[this.musicIndex].stop();
-	    let x = document.getElementById("Shuffle");
-	    if (x.checked === true){
+		this.stop();
+	    if (this.Shuffle === true){
 	    	this.musicIndex = Math.floor((Math.random() * this.musicList.length))
 	    	console.log(this.musicIndex);
 	    } else {
@@ -62,32 +63,30 @@ class JukeBox{
 				this.musicIndex = 0;
 			};
 		}
-		this.musicList[this.musicIndex].play(this.volume);		
+		this.play();		
 	}
 
 	rewind(){
-		this.musicList[this.musicIndex].stop();	
+		this.stop();	
 		if (this.musicIndex > 0){
 			this.musicIndex--;	
 		}
-		this.musicList[this.musicIndex].play(this.volume);
+		this.play();
 	}
 
 	volUp(){
-		let x = this.musicList[this.musicIndex].audio.volume;
+		let x = this.volume;
 		if (x < 1){
 			x = Math.round((x + 0.05) * 100) / 100;
-			document.getElementById("Volume").innerHTML = x;
-			this.musicList[this.musicIndex].audio.volume = x;
+			this.musicList[this.musicIndex].audio.volume = x ;
 			this.volume = x;
 		}
 	};
 
 	volDn(){
-		let x = this.musicList[this.musicIndex].audio.volume;
+		let x = this.volume;
 		if (x > 0){
 			x = Math.round((x - 0.05) * 100) / 100;
-			document.getElementById("Volume").innerHTML = x;
 			this.musicList[this.musicIndex].audio.volume = x;
 			this.volume = x;
 		}

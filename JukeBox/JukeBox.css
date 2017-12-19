@@ -7,7 +7,7 @@ body {
 h1 {
 	text-align: center;
 	text-shadow: 2px 2px black;
-	color: white;
+	color: gold;
 }
 
 h2 {
@@ -35,11 +35,32 @@ h2 {
     border: 6px solid gold;
 }
 
-#Vol {
+#VolBar {
+    column-count: 2;
 	padding: 10px;
 	text-align: center;
     color: black;
     margin: 20px;
     background-color: DarkSlateGrey;
     border: 6px solid gold;
+}
+
+.button {
+    background-color: Gold;
+    border: 4px solid gold;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: DarkOliveGreen;
+    color: gold;
 }
