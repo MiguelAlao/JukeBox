@@ -59,22 +59,14 @@
                 JukeBox1.volDn(); 
                 document.getElementById("Volume").innerText = JukeBox1.volume * 100;
             });
-            //document.getElementById("volUpBtn").addEventListener("click", function(){
-            //    JukeBox1.volUp();
-            //    document.getElementById("Volume").innerHTML = JukeBox1.volume * 100;
-            //});
-            document.getElementById("volUpBtn").onclick = function(){
-               JukeBox1.volUp();
-               document.getElementById("Volume").innerText = JukeBox1.volume * 100;
-           }
-
+            document.getElementById("volUpBtn").addEventListener("click", function(){
+                JukeBox1.volUp();
+                document.getElementById("Volume").innerHTML = JukeBox1.volume * 100;
+            });
+         
             document.getElementById("Shuffle").onclick = function() {
-                if (document.getElementById("Shuffle").checked){
-                    JukeBox1.Shuffle = true; 
-                }else{
-                    JukeBox1.Shuffle = false;
-                } 
-            }
+                JukeBox1.Shuffle = document.getElementById("Shuffle").checked;
+            };
 
 
         </script>    
