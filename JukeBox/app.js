@@ -6,14 +6,21 @@ const port = 3000;
 
 // Define a route
 app.get('/', (req, res) => {
-    // Assuming app.js is in the root directory, you can specify the correct path
-    res.sendFile(__dirname + '/app.js');
-  });
+  res.sendfile('index.html');
+});
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
+
+
+// Start the server
+/*const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+*/
 
 // Middleware to log requests
 app.use((req, res, next) => {
